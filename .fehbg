@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg -g 1360x768 --bg-fill '/home/jombinho/Downloads/randall-mackey-mural2.jpg' 

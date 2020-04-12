@@ -3,40 +3,31 @@ gap=15
 PANEL_HEIGHT=27
 BORDER_WIDTH=2.3
 
-bspc config window_gap $gap
-bspc config top_padding $gap
+bspc config window_gap    $gap
+bspc config top_padding   $gap
 
-bspc config gapless_monocle      false
+bspc config gapless_monocle   false
 
-bspc config border_width		2.3
-bspc config focus_follows_pointer true
-bspc config split_ratio         0.52
-bspc config normal_border_color "#000000"
-bspc config focused_border_color "#000000"
+bspc config border_width            2.3
+bspc config split_ratio             0.52
+bspc config focus_follows_pointer   true
+
+bspc config normal_border_color   "#000000"
+bspc config focused_border_color  "#000000"
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 workspaces_multimonitor &
 
-bspc rule -a spotify state=pseudo_tiled
-bspc rule -a google-chrome-unstable private=on
-bspc rule -a google-chrome-stable private=on
-bspc rule -a firefox private=on
 #bspc rule -a firefox desktop=I
 
 bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 
-##Autostart apps
-#Keybindings daemon
-#sxhkd &
-#Source autostartfile. Uncomment this if you use bspwm-git
-#. $HOME/.config/bspwm/autostart
+pkill sxhkd
+pkill dunst
+pkill picom
 
-if ps -A | grep picom; then
-	killall -q picom
-fi
+sxhkd &
+feh --no-fehbg --bg-fill '~/Downloads/randall-mackey-mural2.jpg' &
 picom &
-
-if ps -A | grep picom; then
-  killall -q polybar
-fi
-polybar mybar &
+dunst &
+$HOME/.config/polybar/launch.sh &
