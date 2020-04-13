@@ -1,6 +1,6 @@
 <h1 align="center">Dotfiles do Jomba</h1>
 
-![dotfiles]ainda não está pronto.
+![dotfiles](https://prnt.sc/ry31gq)
 
 
 ## System
