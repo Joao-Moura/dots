@@ -4,7 +4,7 @@
 
 
 ## System
-+ WM: [bspwm](https://github.com/baskerville/bspwm)
++ WM: [bspwm](https://i.imgur.com/KOKce5P.png)
 + Bar: [polybar](https://github.com/polybar/polybar)
 + Application launcher: [rofi](https://github.com/davatorium/rofi)
 + Compositor: [picom](https://github.com/yshui/picom)
