@@ -1,6 +1,6 @@
 <h1 align="center">Dotfiles do Jomba</h1>
 
-![dotfiles](https://prnt.sc/ry31gq)
+![dotfiles](https://imgur.com/gallery/wQmfVKi)
 
 
 ## System
