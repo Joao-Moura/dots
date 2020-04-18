@@ -14,6 +14,10 @@
 + **Terminal:** [st](https://st.suckless.org/)
 + **Editor:** [Code](https://github.com/Microsoft/vscode)
 
+## Dependências
++ JetBrainsMono Font: [Github](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
++ Playerctl: [Github](https://github.com/altdesktop/playerctl)
+
 ## Other
 + Music: [Spotify](https://www.spotify.com/)
 + Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
