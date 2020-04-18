@@ -5,10 +5,11 @@ xsetroot -cursor_name left_ptr &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0" &
 xrdb merge .Xresources &
 
+## Wallpaper. Nitrogen just draws wallpaper, 
+feh --no-fehbg --bg-fill '~/Downloads/randall-mackey-mural2.jpg' &
+
 ## compositing. Required for shadows, transparency and stuff. 
-if ps -A | grep picom; then
-	killall -q picom
-fi
+pkill picom
 picom &
 
 ## enable local fonts in .fonts directory

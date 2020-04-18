@@ -1,14 +1,12 @@
 #! /bin/sh
-gap=15
-PANEL_HEIGHT=27
-BORDER_WIDTH=2.3
+gap=20
 
 bspc config window_gap    $gap
 bspc config top_padding   $gap
 
 bspc config gapless_monocle   false
 
-bspc config border_width            2.3
+bspc config border_width            0
 bspc config split_ratio             0.52
 bspc config focus_follows_pointer   true
 
@@ -27,7 +25,7 @@ pkill dunst
 pkill picom
 
 sxhkd &
-feh --no-fehbg --bg-fill '~/Downloads/randall-mackey-mural2.jpg' &
+feh --no-fehbg --bg-fill "$HOME/wallpaper/randall-mackey-mural2.jpg" &
 picom &
 dunst &
 $HOME/.config/polybar/launch.sh &
