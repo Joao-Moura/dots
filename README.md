@@ -1,6 +1,6 @@
 <h1 align="center">Dotfiles do Jomba</h1>
 
-![](dots/Pictures/Desktop.png)
+![](Pictures/Desktop.png)
 
 ## System
 + WM: [bspwm](https://i.imgur.com/KOKce5P.png)
