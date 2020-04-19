@@ -16,6 +16,7 @@
 
 ## Dependências
 + JetBrainsMono Font: [Github](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
++ TakaoGothic Font : [Aur](https://aur.archlinux.org/packages/otf-takao/)
 + Playerctl: [Github](https://github.com/altdesktop/playerctl)
 
 ## Other
