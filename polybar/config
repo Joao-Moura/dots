@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-background = #18120f
-foreground = #e6e7df
+background = #151515
+foreground = #d0d0d0
 
 [bar/mybar]
 width = 100%
