@@ -134,7 +134,7 @@ super +  {a,s,w,d}
 
 super +  {Left,Down,Up,Right}
     focusmover {west,south,north,east}
-        	
+    
 # Move tiled windows. Moving a tiled window to 
 # preselected one moves into preselection instead. 
 # Moving out of the screen should move the window to next monitor if possible
@@ -259,7 +259,7 @@ super + shift + space
 #	dmenu_recent -h $PANEL_HEIGHT -fn 'xos4 Terminus:size=15' -i
 
 super + shift + Return
-	default-terminal
+	kitty
 super + z
 	default-terminal
 

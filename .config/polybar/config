@@ -9,6 +9,11 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 ;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
 ;==========================================================
 
 [colors]
@@ -42,7 +47,7 @@ font-1 ="TakaoGothic:style=Regular:size=10;2"
 
 modules-left = bspwm
 modules-center = player-mpris-simple
-modules-right = date 
+modules-right = updates-arch-combined date
 
 tray-position = right
 tray-padding = 2
@@ -68,6 +73,11 @@ label-empty = %name%
 label-empty-foreground = #5e5e5e
 label-empty-padding = 1
 
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/script/updates-arch-combined/updates-arch-combined.sh
+interval = 300
+
 [module/player-mpris-simple]
 type = custom/script
 exec = ~/.config/polybar/script/player-mpris-simple/player-mpris-simple.sh
@@ -83,7 +93,7 @@ interval = 5
 date = "%d/%m/%Y"
 date-alt = %H:%M
 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 
 label = %date%
 
