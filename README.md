@@ -5,13 +5,13 @@
 
 ## [Br] Sistema / [En] System
 
-+  **WM:** [bspwm](https://i.imgur.com/KOKce5P.png)
++  **WM:** [bspwm](https://github.com/baskerville/bspwm)
 +  **Bar:** [polybar](https://github.com/polybar/polybar)
 +  **Application launcher:** [rofi](https://github.com/davatorium/rofi) 
 +  **Compositor:** [picom](https://github.com/yshui/picom)
 +  **Notifications:** [dunst](https://github.com/dunst-project/dunst)
-+  **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)/[Github](https://github.com/kovidgoyal/kitty)
-+  **Cursor:**
++  **Terminal:** [kitty](https://github.com/kovidgoyal/kitty)
++  **Cursor:** [dark hackneyed](https://gitlab.com/Enthymeme/hackneyed-x11-cursors/-/tags/0.8)
 
 ## [Br] Desenvolvimento de software / [En] Development
 +  **Editor:**  [Code](https://github.com/Microsoft/vscode)
