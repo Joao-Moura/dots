@@ -16,7 +16,8 @@ echo "[ ] .icons (Dark Hackned)"
 
 read -p "Continuar [S/n]: " resposta
 
-while [ $resposta != "S" -a $resposta != "s" -a $resposta != "N" -a $resposta != "n" ]; do		echo "Resposta fora do padrão esperado, tende novamente"
+while [ $resposta != "S" -a $resposta != "s" -a $resposta != "N" -a $resposta != "n" ]; do
+		echo "Resposta fora do padrão esperado, tende novamente"
 		read -p "Continuar [S/n]: " resposta
 done
 
@@ -30,7 +31,8 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		echo "Instalando Fontes"
 		echo "[x] JetBrains Mono"
 		echo "[x] Otf-takao"
-		yay -S nerd-fonts-jetbrains-mono otf-takao >> log.txt
+		yay -S --nodiffmenu --nocleanmenu nerd-fonts-jetbrains-mono otf-takao >> log.txt
+    echo "N" && echo "N"
 		sleep 5 && clear
 
 		echo "Instalando Programas"
@@ -49,14 +51,15 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		echo "[x] .config/kitty"
 
 		echo "Deletando Pastas Padrões"
-		rm -rf $HOME/.config/bspwm $HOME/.config/dunst $HOME/.config/polybar $HOME/.config/picom $HOME/.config/rofi $HOME/.config/kitty $HOME/.config/compton
+		rm -rf $HOME/.config/bspwm $HOME/.config/dunst $HOME/.config/polybar $HOME/.config/picom $HOME/.config/rofi $HOME/.config/kitty $HOME/.config/compton $HOME/.config/sxhkd
 		echo "Movendo do Reposiótio para a pasta .config"
-		mv ./config/bspwm $HOME/.config
+		mv .config/bspwm $HOME/.config
 		mv .config/dunst $HOME/.config
 		mv .config/polybar $HOME/.config
-		mv .config/picom/picom $HOME/.config
+		mv .config/picom/picom.conf $HOME/.config
 		mv .config/rofi $HOME/.config
 		mv .config/kitty $HOME/.config
+		mv .config/sxhkd $HOME/.config
 
 		echo "Instalando Cursor Dark Hackned"
 		wget "https://gitlab.com/Enthymeme/hackneyed-x11-cursors/uploads/6d1ec2951f5cc3b93ada59159f32e704/Hackneyed-Dark-0.8-right-handed.tar.bz2" && tar -jxvf Hackneyed-Dark-0.8-right-handed.tar.bz2 >> log.txt
@@ -64,4 +67,5 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		sleep 5 && clear
 fi
 
+$HOME/.config/bspwm/bspwmrc > log.txt
 echo "Instalação Concluida com Sucesso. Obrigado por usar o instalador!"
