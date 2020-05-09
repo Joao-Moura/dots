@@ -32,6 +32,7 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		echo "[x] JetBrains Mono"
 		echo "[x] Otf-takao"
 		yay -S --nodiffmenu --nocleanmenu nerd-fonts-jetbrains-mono otf-takao >> log.txt
+		sudo fc-cache -fv
 		sleep 5 && clear
 
 		echo "Instalando Programas"
