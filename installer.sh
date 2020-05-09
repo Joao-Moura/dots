@@ -16,7 +16,8 @@ echo "[ ] .icons (Dark Hackned)"
 
 read -p "Continuar [S/n]: " resposta
 
-while [ $resposta != "S" -a $resposta != "s" -a $resposta != "N" -a $resposta != "n" ]; do		echo "Resposta fora do padrão esperado, tende novamente"
+while [ $resposta != "S" -a $resposta != "s" -a $resposta != "N" -a $resposta != "n" ]; do
+		echo "Resposta fora do padrão esperado, tente novamente"
 		read -p "Continuar [S/n]: " resposta
 done
 
@@ -57,6 +58,7 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		mv .config/picom/picom $HOME/.config
 		mv .config/rofi $HOME/.config
 		mv .config/kitty $HOME/.config
+		mv Wallpaper $HOME
 
 		echo "Instalando Cursor Dark Hackned"
 		wget "https://gitlab.com/Enthymeme/hackneyed-x11-cursors/uploads/6d1ec2951f5cc3b93ada59159f32e704/Hackneyed-Dark-0.8-right-handed.tar.bz2" && tar -jxvf Hackneyed-Dark-0.8-right-handed.tar.bz2 >> log.txt
