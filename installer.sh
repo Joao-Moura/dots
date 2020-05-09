@@ -32,7 +32,6 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		echo "[x] JetBrains Mono"
 		echo "[x] Otf-takao"
 		yay -S --nodiffmenu --nocleanmenu nerd-fonts-jetbrains-mono otf-takao >> log.txt
-    echo "N" && echo "N"
 		sleep 5 && clear
 
 		echo "Instalando Programas"
@@ -67,5 +66,6 @@ if [ $resposta = "S" -o $resposta = "s" ]; then
 		sleep 5 && clear
 fi
 
-$HOME/.config/bspwm/bspwmrc > log.txt
+cd ../ && rm -rf dots
+$HOME/.config/bspwm/bspwmrc >> log.txt
 echo "Instalação Concluida com Sucesso. Obrigado por usar o instalador!"
