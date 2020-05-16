@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-background = #151515
-foreground = #d0d0d0
+foreground = #b2bbc6
+background = #0b0c0f
 
 [bar/mybar]
 width = 98.5%
@@ -55,6 +55,7 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+wm-restack = bspwm
 [module/bspwm]
 type = internal/bspwm
 
