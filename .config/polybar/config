@@ -21,10 +21,10 @@ background = #151515
 foreground = #d0d0d0
 
 [bar/mybar]
-width = 100%
+width = 98.5%
 height = 33
-offset-x = 0
-offset-y = 0
+offset-x = 10
+offset-y = 10
 fixed-center = true
 
 background = ${colors.background}
