@@ -1,5 +1,4 @@
-
-<h1 align="center">Dotfiles do Jomba</h1>
+<!-- <h1 align="center">Dotfiles do Jomba</h1>
 
 ![](Pictures/Desktop.png)
 
@@ -28,4 +27,5 @@
 +  **Music:** [Spotify](https://www.spotify.com/)
 +  **Browser:** [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 +  **File Manager:** [Thunar](https://github.com/xfce-mirror/thunar)
-+  Comunicação **S I N I S T R A**: [Discord](https://discordapp.com/) and [Telegram](https://telegram.org/)
++  Comunicação **S I N I S T R A**: [Discord](https://discordapp.com/) and [Telegram](https://telegram.org/) -->
+Work in Progress
