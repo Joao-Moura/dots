@@ -10,15 +10,22 @@ return require('packer').startup(function()
     'nvim-lua/plenary.nvim',
   })
 
+  -- Theme
+  use({
+    'rebelot/kanagawa.nvim',
+    as = 'kanagawa',
+    config = function()
+      vim.cmd('colorscheme kanagawa')
+    end,
+  })
+
   -- Status Line
   use({
     'NTBBloodbath/galaxyline.nvim',
     branch = 'main',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      -- Alterar para minha configuração
-      -- require('cosmic.core.statusline')
-      require('galaxyline.themes.eviline')
+      require('core.galaxyline')
     end,
   })
 
@@ -39,6 +46,7 @@ return require('packer').startup(function()
     },
   })
 
+  -- Dashboard de abertura do nvim
   use({
     'glepnir/dashboard-nvim',
     config = function()
@@ -53,7 +61,7 @@ return require('packer').startup(function()
     opt = true,
     event = 'BufRead',
     config = function()
-      require('gitsigns').setup()
+      require('core.gitsigns')
     end,
   })
 

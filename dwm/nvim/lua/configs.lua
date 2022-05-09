@@ -2,6 +2,7 @@ local cmd = vim.cmd
 local opt = vim.opt
 local g = vim.g
 
+-- opt.guifont = 'FiraCode Nerd Font:h10'
 opt.syntax = 'enable'
 opt.encoding = 'utf-8'
 -- opt.matchpairs = { '(:)', '[:]', '{:}', '<:>', '<!--:-->' }

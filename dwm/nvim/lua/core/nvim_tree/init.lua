@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_indent_markers = 1
 g.nvim_tree_icons = {
     default = '',
     git = {
@@ -22,7 +21,9 @@ g.nvim_tree_icons = {
 }
 
 local args = {
-    auto_close = true,
+    renderer = {
+        indent_markers = {enable = true},
+    },
     update_cwd = true,
     update_focused_file = {
         enable = true,
