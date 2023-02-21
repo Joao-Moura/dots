@@ -31,6 +31,7 @@ end)
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.useless_gap = 5
 beautiful.bar_width = 40
+beautiful.iconfont = "FiraCode Nerd Font "
 beautiful.barfont = "FiraCode Nerd Font 14"
 
 terminal = "st"
@@ -66,8 +67,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Tag layout
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
-        awful.layout.suit.floating,
         awful.layout.suit.tile,
+        awful.layout.suit.floating,
         awful.layout.suit.fair,
     })
 end)
@@ -199,6 +200,10 @@ naughty.connect_signal("request::display", function(n)
     naughty.layout.box { notification = n }
 end)
 
+-- }}}
+
+-- {{{ Signals
+local signals = require("signals")
 -- }}}
 
 -- Enable sloppy focus, so that focus follows mouse.

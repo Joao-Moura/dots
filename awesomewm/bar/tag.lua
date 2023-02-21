@@ -4,6 +4,20 @@ local beautiful = require("beautiful")
 
 local wibox = require("wibox")
 
+local update_tags = function(self, c3, index, objects)
+    if c3.selected then
+        self:get_children_by_id('my_back_role')[1].fg = "#FFFFFF"
+    else
+        self:get_children_by_id('my_back_role')[1].fg = beautiful.fg
+    end
+
+    if #c3:clients() > 0 or c3.selected then
+        self:get_children_by_id('my_text_role')[1].text = c3.name
+    else
+        self:get_children_by_id('my_text_role')[1].markup = ""
+    end
+end
+
 local get_taglist = function(s)
     return awful.widget.taglist {
         screen  = s,
@@ -44,19 +58,8 @@ local get_taglist = function(s)
             },
             id = 'my_back_role',
             widget = wibox.container.background,
-            update_callback = function(self, c3, index, objects)
-                if c3.selected then
-                    self:get_children_by_id('my_back_role')[1].fg = "#FFFFFF"
-                else
-                    self:get_children_by_id('my_back_role')[1].fg = beautiful.fg
-                end
-
-                if #c3:clients() > 0 or c3.selected then
-                    self:get_children_by_id('my_text_role')[1].text = c3.name
-                else
-                    self:get_children_by_id('my_text_role')[1].markup = ""
-                end
-            end
+            create_callback = function(self, c3, index, objects) update_tags(self, c3, index, objects) end,
+            update_callback = function(self, c3, index, objects) update_tags(self, c3, index, objects) end,
         }
     }
 end

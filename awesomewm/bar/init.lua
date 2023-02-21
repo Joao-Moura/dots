@@ -7,6 +7,18 @@ local beautiful = require("beautiful")
 local tags = require("bar.tag")
 local modules = require("bar.modules")
 
+local top_widgets = wibox.widget {
+    {
+        modules.layout,
+        spacing = 5,
+        layout = wibox.layout.fixed.vertical,
+    },
+    top = 5,
+    left = 10,
+    right = 10,
+    widget = wibox.container.margin,
+}
+
 local tags_widget = function(s)
     return wibox.widget {
         tags(s),
@@ -14,12 +26,21 @@ local tags_widget = function(s)
     }
 end
 
-local modules_widget = wibox.widget {
+local botton_widgets = wibox.widget {
     {
-        modules.sep,
+        {
+            modules.volume,
+            modules.net,
+            modules.battery,
+            spacing = 7,
+            layout = wibox.layout.fixed.vertical,
+        },
+        -- modules.sep,
         modules.clock,
+        spacing = 10,
         layout = wibox.layout.fixed.vertical,
     },
+    bottom = 5,
     widget = wibox.container.margin,
 }
 
@@ -34,12 +55,11 @@ awful.screen.connect_for_each_screen(function(s)
         bg = beautiful.bg,
         fg = beautiful.fg,
         width = beautiful.bar_width,
-        -- shape = help.rrect(beautiful.bar_br),
         screen = s,
     }):setup {
-        nil,
+        top_widgets,
         tags_widget(s),
-        modules_widget,
+        botton_widgets,
         expand = "none",
         layout = wibox.layout.align.vertical,
     }
