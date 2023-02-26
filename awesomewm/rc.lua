@@ -31,7 +31,10 @@ end)
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.useless_gap = 5
 beautiful.bar_width = 40
-beautiful.iconfont = "FiraCode Nerd Font "
+
+beautiful.font = "FiraCode Nerd Font "
+beautiful.iconfont = beautiful.font
+beautiful.calendar_font = "FiraCode Nerd Font 12"
 beautiful.barfont = "FiraCode Nerd Font 14"
 
 terminal = "st"
@@ -76,6 +79,7 @@ end)
 
 -- {{{ Wibar
 require 'bar'
+require 'widgets.calendar'
 -- }}}
 
 -- {{{ Mouse bindings
@@ -151,6 +155,20 @@ end)
 
 -- {{{ Titlebars
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
+local gfs = require("gears.filesystem")
+local theme_path = gfs.get_configuration_dir() .. "/theme/"
+
+beautiful.titlebar_maximized_button_focus_active = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg", "#90CEAA")
+beautiful.titlebar_maximized_button_focus_inactive = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg", "#90CEAA")
+beautiful.titlebar_maximized_button_normal_active = theme_path .. "icons/" .. "circle.svg"
+beautiful.titlebar_maximized_button_normal_inactive = theme_path .. "icons/" .. "circle.svg"
+
+beautiful.titlebar_minimize_button_focus = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg", "#ECD3A0")
+beautiful.titlebar_minimize_button_normal = theme_path .. "icons/" .. "circle.svg"
+
+beautiful.titlebar_close_button_focus = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg", "#DD6777")
+beautiful.titlebar_close_button_normal = theme_path .. "icons/" .. "circle.svg"
+
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = {
@@ -163,21 +181,29 @@ client.connect_signal("request::titlebars", function(c)
     }
 
     awful.titlebar(c).widget = {
-        nil,
-        { -- Middle
-            { -- Title
+        {
+            {
+                awful.titlebar.widget.closebutton (c),
+                awful.titlebar.widget.minimizebutton (c),
+                awful.titlebar.widget.maximizedbutton (c),
+                spacing = 2,
+                layout = wibox.layout.fixed.horizontal()
+            },
+            top = 3,
+            bottom = 3,
+            left = 6,
+            right = 6,
+            widget = wibox.container.margin
+        },
+        {
+            {
                 halign = "center",
                 widget = awful.titlebar.widget.titlewidget(c)
             },
             buttons = buttons,
             layout  = wibox.layout.flex.horizontal
         },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
+        nil,
         layout = wibox.layout.align.horizontal
     }
 end)

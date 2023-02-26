@@ -28,7 +28,7 @@ M.vol = function()
 end
 
 gears.timer {
-    timeout = 30,
+    timeout = 20,
     call_now = true,
     autostart = true,
     callback = function()
@@ -38,7 +38,7 @@ gears.timer {
 }
 
 gears.timer {
-    timeout = 10,
+    timeout = 5,
     call_now = true,
     autostart = true,
     callback = function()

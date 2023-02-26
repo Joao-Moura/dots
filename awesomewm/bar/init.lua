@@ -7,17 +7,19 @@ local beautiful = require("beautiful")
 local tags = require("bar.tag")
 local modules = require("bar.modules")
 
-local top_widgets = wibox.widget {
-    {
-        modules.layout,
-        spacing = 5,
-        layout = wibox.layout.fixed.vertical,
-    },
-    top = 5,
-    left = 10,
-    right = 10,
-    widget = wibox.container.margin,
-}
+local top_widgets = function(s)
+    return wibox.widget {
+        {
+            modules.layout(s),
+            spacing = 5,
+            layout = wibox.layout.fixed.vertical,
+        },
+        top = 5,
+        left = 10,
+        right = 10,
+        widget = wibox.container.margin,
+    }
+end
 
 local tags_widget = function(s)
     return wibox.widget {
@@ -57,7 +59,7 @@ awful.screen.connect_for_each_screen(function(s)
         width = beautiful.bar_width,
         screen = s,
     }):setup {
-        top_widgets,
+        top_widgets(s),
         tags_widget(s),
         botton_widgets,
         expand = "none",
