@@ -1,0 +1,32 @@
+# Configurações para ativação do placa de vídeo
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+
+# Corrige o tearing
+nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, ForceCompositionPipeline = On}/g')"
+
+# Setta vários monitores
+principal=HDMI-0
+secundario=eDP-1-1
+if xrandr | grep "$principal connected"; then
+    xrandr --output "$principal" --auto --right-of "$secundario"
+    xrandr --output "$principal" --brightness 0.7
+fi
+
+# Setta luminosidade
+xrandr --output "$secundario" --brightness 0.7
+
+# Background image
+~/.fehbg &
+
+# Retorna as cores do terminal
+# O pywal salva esses arquivos em .cache/wal/sequences
+wal -R
+
+# Executa o compositor
+# picom &
+
+# Windows manager (dwm) and dwmblocks
+# ~/.config/dwmblocks/dwmblocks &
+# exec dwm
+exec awesome

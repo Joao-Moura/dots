@@ -11,7 +11,7 @@ M.net = function()
     end)
 end
 
-local bat = [[ charge=$(acpi | awk -F' ' '{print $4}' | xargs | tr -d '[%,]'); printf "$(acpi | awk -F' ' '{print $3}' | xargs | tr -d '[,]') ${charge% *}\n" ]]
+local bat = [[ set charge $(acpi | awk -F' ' '{print $4}' | xargs | tr -d '[%,]'); printf "$(acpi | awk -F' ' '{print $3}' | xargs | tr -d '[,]') $charge%\n" ]]
 M.bat = function()
     awful.spawn.easy_async_with_shell(bat, function(out)
         local vars = gears.string.split(out, " ")
@@ -19,13 +19,15 @@ M.bat = function()
     end)
 end
 
-local vol = [[ str=$( pactl get-sink-volume @DEFAULT_SINK@ | awk -F' ' '{print $5}' | xargs | tr -d '[%]' ); printf "$(pactl get-sink-mute @DEFAULT_SINK@ | awk -F' ' '{print $2}' | xargs) ${str% *}\n" ]]
+local vol = [[ set str $( pactl get-sink-volume @DEFAULT_SINK@ | awk -F' ' '{print $5}' | xargs | tr -d '[%]' ); printf "$(pactl get-sink-mute @DEFAULT_SINK@ | awk -F' ' '{print $2}' | xargs) $str%\n" ]]
 M.vol = function()
     awful.spawn.easy_async_with_shell(vol, function(out)
         local vars = gears.string.split(out, " ")
         awesome.emit_signal('vol::value', vars[1]:match("sim") and 1 or 0, tonumber(vars[2]))
     end)
 end
+
+local multiVol = [[ pacmd list-sink-inputs | awk '/index:|application.name |volume: |state: |muted: /' | sed -r 's/ =/:/g' | tr -d "\"" | sed -r 's/front-left: [0-9]* \/[ ]*([0-9]*%) .*/\1/g' | tr -d " \t" | awk -F':' '{printf $0 "/"}' ]]
 
 gears.timer {
     timeout = 20,

@@ -80,6 +80,7 @@ end)
 -- {{{ Wibar
 require 'bar'
 require 'widgets.calendar'
+require 'widgets.soundboard'
 -- }}}
 
 -- {{{ Mouse bindings

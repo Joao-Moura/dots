@@ -5,7 +5,7 @@ local mod = require 'bindings.mod'
 
 local menubar = require("menubar")
 
-local terminal = "st"
+local terminal = "kitty"
 
 -- General Awesome keys
 awful.keyboard.append_global_keybindings({

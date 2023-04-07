@@ -57,7 +57,7 @@ M.volume = wibox.widget {
         awful.button {
             modifiers = {},
             button    = 1,
-            on_press  = function() awesome.emit_signal("toggle::vol") end,
+            on_press  = function() awesome.emit_signal("toggle::sound") end,
         },
     }
 }

@@ -13,8 +13,6 @@ local calendar_widget = wibox.widget {
     start_sunday = true,
     widget = wibox.widget.calendar.month,
     fn_embed = function(widget, flag, date)
-        widget.align = 'center'
-        widget.valign = 'center'
         if flag == 'weekday' or flag == 'header' then
             widget.text = widget.text:gsub("%a", string.upper, 1)
         end
@@ -22,6 +20,14 @@ local calendar_widget = wibox.widget {
         if flag == 'header' then
             widget.text = widget.text:gsub(" ", " de ")
             widget.font = beautiful.font .. '14'
+        end
+
+        if flag == 'focus' or flag == 'normal' then
+            widget = wibox.widget {
+                text = date.day,
+                align = 'center',
+                widget = wibox.widget.textbox,
+            }
         end
 
         return wibox.widget {
