@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd /opt/neovim && git pull && sudo make distclean && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
