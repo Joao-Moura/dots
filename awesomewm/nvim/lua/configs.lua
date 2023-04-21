@@ -1,6 +1,4 @@
-local cmd = vim.cmd
 local opt = vim.opt
-local g = vim.g
 
 -- opt.guifont = 'FiraCode Nerd Font:h20'
 opt.syntax = 'enable'
